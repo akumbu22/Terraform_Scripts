@@ -1,4 +1,4 @@
-# Specify the cloud provider and the region
+# Specify the cloud provider
 
 terraform {
  required_providers {
