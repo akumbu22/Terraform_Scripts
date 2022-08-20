@@ -1,11 +1,9 @@
+# Firstly, ensure that "AMazonEC2FullAccess" and "IAMFullAccess" policies are assigned to the Terraform role.
+
 # Specify the cloud provider
 
-terraform {
- required_providers {
-  aws = {
-   source = "hashicorp/aws"
-  }
- }
+provider "aws" {
+  region     = "us-east-1"
 }
 
 # Setup an IAM role that has access to the EKS
