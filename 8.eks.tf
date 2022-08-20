@@ -30,9 +30,10 @@ EOF
 
 }
 
-# Attach the following policies to the IAM role: 
-# AmazonEKSClusterPolicy
-# AmazonEC2ContainerRegistryReadOnly
+
+# Attach the following policies to the EKS IAM role: 
+# 1. AmazonEKSClusterPolicy
+# 2. AmazonEC2ContainerRegistryReadOnly
 
 resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy" {
  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
@@ -42,7 +43,6 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly-EK
  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
  role    = aws_iam_role.eks-iam-role.name
 }
-
 
 # Create the EKS cluster
 
@@ -58,7 +58,6 @@ resource "aws_eks_cluster" "techdom-eks" {
   aws_iam_role.eks-iam-role,
  ]
 }
-
 
 # Set up an IAM role for the worker nodes and attach the following policies: 
 # 1. AmazonEKSWorkerNodePolicy
@@ -101,8 +100,7 @@ resource "aws_iam_role" "workernodes" {
   role    = aws_iam_role.workernodes.name
  }
  
-
-# Create worker nodes (specify the number under scaling_config)
+# Create worker nodes (specify the number of nodes under scaling_config)
 
 resource "aws_eks_node_group" "worker-node-group" {
   cluster_name  = aws_eks_cluster.techdom-eks.name
