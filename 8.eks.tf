@@ -456,7 +456,7 @@ output "eks_cluster_autoscaler_arn" {
 
 
 # POST-PROVISIONING STEPS
-=========================
+#=========================
 # Install and configure AWS CLI on your computer if you don't already have it (https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 # Install kubectl if you don't already have it (https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
 # Configure kubectl to communicate with your cluster (https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html)
