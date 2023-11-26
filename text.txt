@@ -1,0 +1,8 @@
+ls 
+vi 
+vim
+nano:wq!
+wq!
+x
+x
+
